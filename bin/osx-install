@@ -1,0 +1,135 @@
+#!/bin/bash
+
+# install homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Update homebrew
+brew install git
+brew update
+brew upgrade
+
+# install mas
+brew install mas
+
+# install essentials
+brew install \
+aria2 \
+autoconf \
+automake \
+awscli \
+bash \
+bash-completion \
+bat \
+cocoapods \
+colordiff \
+coreutils \
+direnv \
+docker-completion \
+docker-compose-completion \
+exiftool \
+git-extras \
+gnu-sed \
+graphicsmagick \
+gron \
+hashdeep \
+imagemagick \
+jpegoptim \
+jq \
+md5sha1sum \
+moreutils \
+openssl \
+pip-completion \
+pngcrush \
+sqlite \
+ssh-copy-id \
+the_platinum_searcher \
+tree \
+wget \
+z \
+zlib \
+zopfli \
+
+# install "out of appstore" apps
+brew install --cask dash
+brew install --cask docker
+brew install --cask droplr
+brew install --cask firefox
+brew install --cask google-backup-and-sync
+brew install --cask google-chrome
+brew install --cask hammerspoon
+brew install --cask iconjar
+brew install --cask iterm2
+brew install --cask ksdiff
+brew install --cask sketch
+brew install --cask spotify
+brew install --cask  the-unarchiver
+brew install --cask  transmission
+brew install --cask  transmit
+brew install --cask  visual-studio-code
+brew install --cask  vlc
+brew install --cask  dropbox
+
+# install appstore apps
+echo "💿  Affinity Designer" && mas install 824171161
+echo "💿  Amphetamine" && mas install 937984704
+echo "💿  Barcode Designer" && mas install 976921966
+echo "💿  Capto" && mas install 1078184147
+echo "💿  Cardhop" && mas install 1290358394
+echo "💿  ColorSnapper2" && mas install 969418666
+echo "💿  Converto - The Unit Converter" && mas install 576421334
+echo "💿  DaisyDisk" && mas install 411643860
+echo "💿  Fantastical 2" && mas install 975937182
+echo "💿  Hyper 3" && mas install 685096913
+echo "💿  Icon Slate" && mas install 439697913
+echo "💿  Kaleidoscope" && mas install 587512244
+echo "💿  LastPass" && mas install 926036361
+echo "💿  MockSMTP" && mas install 423535515
+echo "💿  Monodraw" && mas install 920404675
+echo "💿  Orion Label Maker" && mas install 994189084
+echo "💿  Patterns - The Regex App" && mas install 429449079
+echo "💿  Pixa" && mas install 527618971
+echo "💿  Pixelmator Pro" && mas install 1289583905
+echo "💿  Pixelmator" && mas install 407963104
+echo "💿  Slack" && mas install 803453959
+echo "💿  Tweetbot 3" && mas install 1384080005
+echo "💿  xScope 4" && mas install 889428659
+
+# install sshfs
+brew cask install osxfuse
+brew install sshfs
+
+# install asdf
+brew install asdf gnupg zlib
+. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+asdf plugin-add dart
+asdf plugin-add elixir
+asdf plugin-add erlang
+asdf plugin-add flutter
+asdf plugin-add golang
+asdf plugin-add gradle
+asdf plugin-add groovy
+asdf plugin-add java
+asdf plugin-add kotlin
+asdf plugin-add lua
+asdf plugin-add maven
+asdf plugin-add nodejs
+asdf plugin-add packer
+asdf plugin-add python
+asdf plugin-add R
+asdf plugin-add ruby
+asdf plugin-add rust
+asdf plugin-add sbt
+asdf plugin-add scala
+asdf plugin-add shfmt
+asdf plugin-add sqlite
+asdf plugin-add swift
+asdf plugin-add terraform
+asdf plugin-add terraform-validator
+asdf plugin-add tmux
+asdf plugin-add yarn
+
+bash -e -c "cd ~ && asdf install"
+
+# # Fix Mojave
+# sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /

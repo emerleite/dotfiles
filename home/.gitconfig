@@ -2,9 +2,10 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   w = whatchanged
 [github]
-  user = emerleite
+  user = peleteiro
 [core]
-  editor = emacs -nw
+  # editor = subl -n -w
+  editor = vim
   pager = less -FRSX
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [color]
@@ -28,8 +29,8 @@
   changed = green
   untracked = cyan
 [user]
-  name = Emerson Macedo
-  email = emerleite@gmail.com
+  name = Jose Peleteiro
+  email = jose@peleteiro.net
 [branch "master"]
   remote = origin
   merge = master

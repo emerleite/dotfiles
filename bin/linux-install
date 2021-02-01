@@ -1,0 +1,156 @@
+#!/bin/bash
+
+# ReadyNas
+if [[ -d "/proc/readynas" ]]; then
+  echo 'Installing packages for ReadyNas linux... '
+
+  # debian / readynas
+  apt update
+  apt upgrade -y
+  apt install -y bash-completion tmux vim-nox build-essential p7zip-full
+
+# Ubuntu
+elif [ -n "$(uname -a | grep Ubuntu)" ]; then
+  echo "Installing packages for Ubuntu..."
+
+  sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+  sudo add-apt-repository multiverse
+  sudo apt update
+  sudo apt full-upgrade -y
+
+  # Essentials
+  sudo apt install -y build-essential pkg-config dh-autoreconf nasm curl vim-nox \
+                      bash-completion tmux p7zip-full p7zip-rar git \
+                      automake autoconf libreadline-dev libncurses-dev libcurl3-dev zlib1g-dev libssl-dev libyaml-dev \
+                      libxslt-dev libffi-dev libtool unixodbc-dev gfortran
+
+  # asdf
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.1
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
+  asdf plugin-add nodejs
+  bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+  asdf plugin-add docker-slim
+  asdf plugin-add elixir
+  asdf plugin-add erlang
+  asdf plugin-add flutter
+  asdf plugin-add golang
+  asdf plugin-add gradle
+  asdf plugin-add java
+  asdf plugin-add kotlin
+  asdf plugin-add lua
+  asdf plugin-add maven
+  asdf plugin-add packer
+  asdf plugin-add python
+  asdf plugin-add R
+  asdf plugin-add ruby
+  asdf plugin-add rust
+  asdf plugin-add sbt
+  asdf plugin-add scala
+  asdf plugin-add shfmt
+  asdf plugin-add sqlite
+  asdf plugin-add swift
+  asdf plugin-add terraform
+  asdf plugin-add tflint
+  asdf plugin-add tmux
+  asdf plugin-add yarn
+
+  # docker
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+  sudo apt update
+  sudo apt install -y docker-ce
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  sudo systemctl enable docker
+
+  # Android-SDK
+  curl -o /tmp/sdk-tools-linux.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+  mkdir -p ~/.local/share/android
+  unzip -n /tmp/sdk-tools-linux.zip -d ~/.local/share/android
+  rm /tmp/sdk-tools-linux.zip
+
+  # Tooling
+  sudo apt install -y \
+                      aria2 \
+                      colordiff \
+                      direnv \
+                      entr \
+                      exiftool \
+                      ffmpeg \
+                      git-extras \
+                      hashdeep \
+                      htop \
+                      imagemagick \
+                      inkscape \
+                      jpegoptim \
+                      jq \
+                      parallel \
+                      pngcrush \
+                      pngnq \
+                      pngquant \
+                      silversearcher-ag \
+                      sqlite3 \
+                      sshfs \
+                      tree \
+                      zopfli
+
+  # Ubuntu Desktop
+  if dpkg -l ubuntu-desktop 2> /dev/null; then
+    # auto hide dock
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+    gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+
+    # gnome-shell
+    sudo apt-get install -y chrome-gnome-shell gnome-tweaks gnome-shell-extensions
+    gnome-extensions enable peleteiro@dotfiles
+
+    # terminator
+    sudo apt install -y terminator
+
+    # Snaps
+    sudo snap install aws-cli --classic
+    sudo snap install code --classic
+    sudo snap install google-cloud-sdk --classic
+    sudo snap install insomnia
+
+    sudo snap install intellij-idea-ultimate --classic
+    sudo snap install slack --classic
+    sudo snap install spotify
+    sudo snap install sublime-text --classic
+    sudo snap install vlc
+    sudo snap install caffeine-indicator
+
+    # Platformio
+    sudo python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py)"
+
+    # Chrome
+    curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+    sudo apt update
+    sudo apt install -y google-chrome-stable
+
+    # Opera
+    curl -fsSL https://deb.opera.com/archive.key | sudo apt-key add -
+    echo "deb [arch=amd64] https://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)" | sudo tee /etc/apt/sources.list.d/opera-stable.list
+    sudo apt update
+    printf "opera-stable opera-stable/add-deb-source boolean false\n" | sudo debconf-set-selections
+    sudo apt install -y opera-stable
+
+    # qemu
+    sudo apt install qemu-kvm qemu virt-manager virt-viewer libvirt-daemon
+    sudo systemctl enable libvirtd
+    sudo systemctl start libvirtd
+
+    # Insync Google Drive
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+    echo "deb [arch=amd64] http://apt.insync.io/ubuntu $(lsb_release -cs) non-free contrib" | sudo tee /etc/apt/sources.list.d/insync.list
+    sudo apt update
+    sudo apt install -y insync
+  fi
+
+  sudo apt autoremove -y
+
+  printf "\n\nYou MUST reboot your system in order to changes to take effect.\n\n"
+
+fi

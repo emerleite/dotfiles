@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Add pip locals to path
+export PATH=~/.local/bin:$PATH
+
+# Add android to path
+export ANDROID_HOME=~/.local/share/android
+export PATH=$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator:$PATH
+
+# asdf
+if [ -d $HOME/.asdf ]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi
+
+# enable programmable completion features
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+## Turn off terminal beep
+bind 'set bell-style none'
+
+## Adds username on prompt PS1
+export PS1="\[\033[36m\]\u\[\033[m\]@${PS1}"
+
+# direnv
+eval "$(direnv hook bash)"
+
+# alias
+alias open=/usr/bin/xdg-open
+
+# pbcopy
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
