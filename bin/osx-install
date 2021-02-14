@@ -48,6 +48,12 @@ wget \
 z \
 zlib \
 zopfli \
+media-info \
+htop \
+thefuck \
+httpie \
+gphotos-uploader-cli
+
 
 # install "out of appstore" apps
 brew install --cask dash
@@ -63,12 +69,22 @@ brew install --cask sketch
 brew install --cask spotify
 brew install --cask the-unarchiver
 brew install --cask transmission
-brew install --cask transmit
 brew install --cask visual-studio-code
 brew install --cask vlc
-brew install --cask dropbox
+brew install --cask telegram
 brew install --cask rowanj-gitx
-brew install --cask discord
+brew install --cask kindle
+brew install --cask enpass
+brew install --cask dropbox
+brew install --cask insomnia
+brew install --cask dbeaver-community
+brew install --cask appcleaner
+brew install --cask numi
+brew install --cask sdformatter
+brew install --cask rectangle
+brew install --cask slack
+
+>>>>>>> 699910d (Added installs)
 
 # install appstore apps
 echo "💿  Affinity Designer" && mas install 824171161
