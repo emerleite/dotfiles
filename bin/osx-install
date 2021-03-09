@@ -84,8 +84,6 @@ brew install --cask sdformatter
 brew install --cask rectangle
 brew install --cask slack
 
->>>>>>> 699910d (Added installs)
-
 # install appstore apps
 echo "💿  Affinity Designer" && mas install 824171161
 echo "💿  Amphetamine" && mas install 937984704
@@ -109,6 +107,7 @@ echo "💿  Pixelmator Pro" && mas install 1289583905
 echo "💿  Pixelmator" && mas install 407963104
 echo "💿  Slack" && mas install 803453959
 echo "💿  xScope 4" && mas install 889428659
+echo "💿  Todoist" && mas install 585829637
 
 # install sshfs
 brew cask install osxfuse

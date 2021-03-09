@@ -29,8 +29,8 @@
   changed = green
   untracked = cyan
 [user]
-  name = Jose Peleteiro
-  email = jose@peleteiro.net
+  name = Emerson Macedo
+  email = emerleite@gmail.com
 [branch "master"]
   remote = origin
   merge = master
