@@ -9,6 +9,9 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include"
 # bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# git prompt
+source ~/.git-prompt.sh
+
 # direnv
 eval "$(direnv hook bash)"
 
