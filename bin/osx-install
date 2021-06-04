@@ -62,7 +62,8 @@ mycli \
 tldr \
 ffmpeg \
 witch \
-wrk
+wrk \
+wxmac
 
 # install "out of appstore" apps
 brew install --cask dash
