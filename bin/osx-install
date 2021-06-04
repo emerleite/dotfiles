@@ -52,8 +52,17 @@ media-info \
 htop \
 thefuck \
 httpie \
-gphotos-uploader-cli
-
+gphotos-uploader-cli \
+awslogs \
+emacs \
+neofetch \
+telnet \
+pgcli \
+mycli \
+tldr \
+ffmpeg \
+witch \
+wrk
 
 # install "out of appstore" apps
 brew install --cask dash
@@ -74,40 +83,25 @@ brew install --cask vlc
 brew install --cask telegram
 brew install --cask rowanj-gitx
 brew install --cask kindle
-brew install --cask enpass
 brew install --cask dropbox
 brew install --cask insomnia
-brew install --cask dbeaver-community
 brew install --cask appcleaner
 brew install --cask numi
 brew install --cask sdformatter
 brew install --cask rectangle
-brew install --cask slack
+brew install --cask zoom
+brew install --cask ngrok
+brew install --cask drawio
+brew install --cask onlyoffice
+brew install --cask keybase
 
 # install appstore apps
-echo "💿  Affinity Designer" && mas install 824171161
-echo "💿  Amphetamine" && mas install 937984704
-echo "💿  Barcode Designer" && mas install 976921966
-echo "💿  Capto" && mas install 1078184147
-echo "💿  Cardhop" && mas install 1290358394
-echo "💿  ColorSnapper2" && mas install 969418666
-echo "💿  Converto - The Unit Converter" && mas install 576421334
-echo "💿  DaisyDisk" && mas install 411643860
-echo "💿  Fantastical 2" && mas install 975937182
-echo "💿  Hyper 3" && mas install 685096913
-echo "💿  Icon Slate" && mas install 439697913
-echo "💿  Kaleidoscope" && mas install 587512244
-echo "💿  LastPass" && mas install 926036361
-echo "💿  MockSMTP" && mas install 423535515
-echo "💿  Monodraw" && mas install 920404675
-echo "💿  Orion Label Maker" && mas install 994189084
-echo "💿  Patterns - The Regex App" && mas install 429449079
-echo "💿  Pixa" && mas install 527618971
-echo "💿  Pixelmator Pro" && mas install 1289583905
-echo "💿  Pixelmator" && mas install 407963104
 echo "💿  Slack" && mas install 803453959
-echo "💿  xScope 4" && mas install 889428659
 echo "💿  Todoist" && mas install 585829637
+echo "💿  Enpass" && mas install 732710998
+echo "💿  WhatsApp" && mas install 1147396723
+echo "💿  Skitch" && mas install 425955336
+
 
 # install sshfs
 brew cask install osxfuse
@@ -134,7 +128,6 @@ asdf plugin-add python
 asdf plugin-add R
 asdf plugin-add ruby
 asdf plugin-add rust
-asdf plugin-add sbt
 asdf plugin-add scala
 asdf plugin-add shfmt
 asdf plugin-add sqlite
@@ -145,6 +138,3 @@ asdf plugin-add tmux
 asdf plugin-add yarn
 
 bash -e -c "cd ~ && asdf install"
-
-# # Fix Mojave
-# sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
