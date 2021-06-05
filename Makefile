@@ -3,7 +3,7 @@
 
 OS := $(shell uname)
 
-all: config install copy
+all: config install copy copy-fonts
 
 config:
 ifeq ($(OS), Darwin)
@@ -20,6 +20,11 @@ endif
 
 copy:
 	@./bin/copy-home
+
+copy-fonts:
+ifeq ($(OS), Darwin)
+	@./bin/osx-copy-fonts
+endif
 
 gnome-shell-reload: copy
 	killall -SIGQUIT gnome-shell

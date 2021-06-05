@@ -1,0 +1,5 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+
+# Copy dotfiles
+find osx/Fonts -maxdepth 1 -type f -name \*.ttf -execdir cp "$DIR/osx/Fonts/{}" "$HOME/Library/Fonts/{}" \;
