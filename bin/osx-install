@@ -55,7 +55,7 @@ media-info \
 htop \
 thefuck \
 httpie \
-gphotos-uploader-cli \
+gphotosuploader/tap/gphotos-uploader-cli \
 awslogs \
 emacs \
 neofetch \
@@ -67,7 +67,8 @@ ffmpeg \
 witch \
 wrk \
 wxmac \
-htop
+htop \
+pass
 
 # install "out of appstore" apps
 brew install --cask dash
