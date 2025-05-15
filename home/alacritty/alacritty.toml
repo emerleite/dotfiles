@@ -3,6 +3,8 @@ live_config_reload = true
 
 [window]
 opacity = 0.95
+title = "Terminal 1981"
+# dynamic_title = true
 
 [font]
 
