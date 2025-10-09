@@ -140,6 +140,7 @@ eval "$(uvx --generate-shell-completion zsh)"
 
 # Load aliases safely
 [[ -f ~/.zshrc_aliases ]] && source ~/.zshrc_aliases
+[[ -f ~/.zshrc_`hostname` ]] && source ~/.zshrc_`hostname`
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
