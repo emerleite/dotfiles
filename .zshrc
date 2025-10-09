@@ -142,6 +142,9 @@ eval "$(uvx --generate-shell-completion zsh)"
 [[ -f ~/.zshrc_aliases ]] && source ~/.zshrc_aliases
 [[ -f ~/.zshrc_`hostname` ]] && source ~/.zshrc_`hostname`
 
+# Editor definition
+export VISUAL=nvim
+export EDITOR=$VISUAL
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval 
