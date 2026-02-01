@@ -128,6 +128,8 @@ eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
 
+eval "$(direnv hook zsh)"
+
 source <(fzf --zsh)
 
   if type brew &>/dev/null; then
