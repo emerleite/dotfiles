@@ -123,6 +123,7 @@ alias lla='ls -la'
 alias lt='ls -tree'
 alias cd='z'
 alias zz='z -'
+alias list-devices='xcrun simctl list devices available'
 
 eval "$(zoxide init zsh)"
 
